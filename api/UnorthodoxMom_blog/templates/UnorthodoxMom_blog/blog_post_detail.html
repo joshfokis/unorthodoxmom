@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'UnorthodoxMom_blog_blog_post_list' %}">Blog_Post Listing</a></p>
+<table class="table">
+<tr><td>title</td><td>{{ object.title }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>post</td><td>{{ object.post }}</td></tr>
+<tr><td>tags</td><td>{{ object.tags }}</td></tr>
+<tr><td>images</td><td>{{ object.images }}</td></tr>
+<tr><td>video_link</td><td>{{ object.video_link }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Blog_Post</a>
+
+{% endblock %}

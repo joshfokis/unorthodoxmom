@@ -1,0 +1,49 @@
+version: '3'
+services:
+  momdb:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: mom
+      PGPASSWORD: 123456
+      POSTGRES_DB: mom
+    volumes:
+      - ./db_data:/var/lib/postgresql/data/pgdata:Z
+  momblog:
+    build: ./api
+
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./api:/code:Z
+    ports:
+      - "8000:8000"
+    depends_on:
+      - momdb
+    links:
+      - momdb
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: joshfokis@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 123456
+    ports:
+      - "8080:80"
+    depends_on:
+      - momdb
+    links:
+      - momdb
+  frontend:
+    build: ./frontend
+    command: "npm start"
+    volumes:
+      - ./frontend:/app/frontend:Z
+      - ./frontend/logs:/root/.npm/_logs:Z
+      - node-modules:/app/frontend/node_modules
+    ports:
+      - "80:3000"
+    links:
+      - momblog
+
+
+volumes:
+  node-modules:
