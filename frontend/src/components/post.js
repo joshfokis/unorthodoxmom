@@ -20,7 +20,7 @@ class Post extends Component {
 
     componentDidMount() {
         const _this = this;
-        fetch(`http://localhost:8000/api/v1/blog_post/${this.props.match.params.id}`)
+        fetch(`http://localhost:8000/api/v1/blog_post/${this.props.match.params.slug}`)
             .then(res => res.json())
             .then(json => {
                 this.setState({

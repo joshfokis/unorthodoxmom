@@ -22,7 +22,7 @@ function App() {
         <section className="main-content">
           <Route path="/" exact component={Homev2} />
           <Route path="/blog" exact component={Blog} />
-          <Route path="/blog/:id" component={Post} />
+          <Route path="/blog/:slug" component={Post} />
         </section>
         {/* </Switch> */}
         <Footer />

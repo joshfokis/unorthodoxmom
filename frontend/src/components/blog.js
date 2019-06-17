@@ -59,7 +59,7 @@ class Blog extends Component {
                             <p>{post.post}</p>
                         }
                         </figcaption>
-                        <Link to={`/blog/${post.id}`} title="Read more">Read more</Link>
+                        <Link to={`/blog/${post.slug}`} title="Read more">Read more</Link>
                     </figure>
                     ))}
                 </div>
