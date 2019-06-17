@@ -1,7 +1,7 @@
 from . import models
 from . import serializers
 from rest_framework import viewsets, permissions
-from rest_framework.response import Response
+from url_filter.integrations.drf import DjangoFilterBackend
 
 
 class Blog_PostViewSet(viewsets.ModelViewSet):
@@ -9,6 +9,10 @@ class Blog_PostViewSet(viewsets.ModelViewSet):
 
     queryset = models.Blog_Post.objects.all()
     serializer_class = serializers.Blog_PostSerializer
+    lookup_field = 'slug'
+    extra_kwargs = {
+        'url': {'lookup_field': 'slug'}
+    }
     # permission_classes = [permissions.IsAuthenticated]
 
 
@@ -30,7 +34,8 @@ class CommentsViewSet(viewsets.ModelViewSet):
     extra_kwargs = {
         'url': {'lookup_field': 'blog_post'}
     }
-    
+    filter_backends = [DjangoFilterBackend]
+    filter_fields = ['blog_post']
     # permission_classes = [permissions.IsAuthenticated]
     
 
