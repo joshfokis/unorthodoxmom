@@ -17,7 +17,7 @@ class Comments extends Component {
 
     componentDidMount() {
         const _this = this;
-        fetch(`http://localhost:8000/api/v1/comments/`)
+        fetch(`http://localhost:8000/api/v1/comments/?blog_post=${this.props.id}`)
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -41,9 +41,21 @@ class Comments extends Component {
             return(
                 <section className="section">
                     {comments.map(comment => (
-                        <div>
-                  { comment.comment_body }      
-                  </div>
+                      <article class="media comments-box">
+                        <div class="media-content">
+                            <div class="content">
+                            <p>
+                                <strong>{ comment.name }</strong>
+                                <br />
+                                { comment.comment_body }
+                            </p>
+                            </div>
+                            <nav class="level is-mobile">
+                            <div class="level-left">
+                            </div>
+                            </nav>
+                        </div>
+                      </article>
                     ))}
                 </section>
             )
