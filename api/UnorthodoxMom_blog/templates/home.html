@@ -1,23 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-        <section className="hero is-fullheight">
-          <div className="hero-body">
-            <div className="container">
-              <div className="slideshow-container">
-                <div className="mySlides">
-                  <h1 className="title has-text-white custom-font">Unorthodox Mom</h1>
-                  <h2 className="subtitle has-text-white">Subtitle</h2>
+
+                <div id="posts" class="clearfix">
+                  {posts.map(post => (
+                    <figure class="post card">
+                        <div class="card-image">
+                        <div class="image is-3by2">
+                        <img class="" src={post.images} />
+                        </div>
+                        </div>
+                        <figcaption class="card-body">
+                        <h2>{post.title}</h2>
+                        {post.post.length > MAX_LENGTH ?
+                            (
+                            <div>
+                                {`${post.post.substring(0, MAX_LENGTH)}...`}
+                            </div>
+                            ) :
+                            <p>{post.post}</p>
+                        }
+                        </figcaption>
+                        <Link to={`/blog/${post.slug}`} title="Read more">Read more</Link>
+                    </figure>
+                    ))}
                 </div>
-                <div className="mySlides">
-                  <h1 className="title has-text-white">About</h1>
-                  <h2 className="subtitle has-text-white">subtitle</h2>
-                </div>
-              </div>
-              <div class="dot-container">
-                <span class="dot" onClick={this.currentSlide(1)}></span> 
-                <span class="dot" onClick={this.currentSlide(2)}></span> 
-              </div>
-            </div>
-          </div>
-        </section>
 {% endblock content %}

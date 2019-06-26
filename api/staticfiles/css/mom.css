@@ -1,0 +1,140 @@
+@import 'blog.css';
+@import 'post.css';
+@import 'comments.css';
+
+.hero {
+    height: 100%;
+  }
+  .cover {
+    background-size:  cover;
+    /* background-attachment: fixed; */
+    background-blend-mode: multiply;
+    background-image: url('https://images.unsplash.com/photo-1496660818001-d4f9b64f68f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1380&q=80');
+    background-color: #999999;
+  }
+  
+  .about {
+    position: absolute;
+    right: 0;
+  }
+  
+  .custom-font {
+    font-family: 'Rochester', cursive;
+  }
+  
+  /* Slideshow container */
+  .slideshow-container {
+    height: 100%;
+    width: 100%;
+    /* background: #f1f1f1f1; */
+  }
+  
+  /* Slides */
+  .mySlides {
+    display: none;
+    padding: 80px;
+    /* text-align: center; */
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: #888;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+  }
+  
+  /* The dot/bullet/indicator container */
+  .next-arrow{
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left: -50px;
+    bottom: 0;
+    /* text-align: center; */
+    padding: 20px;
+    
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    /* background: #ddd; */
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  /* Add a background color to the active dot/circle */
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* html::-webkit-scrollbar { width: 0 !important } */
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 0px;
+  background: #ece3e3;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+  background: #717171;
+  }
+  
+  /* .profile-img {
+    position: absolute;
+    right: 0;
+  } */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .about-title {
+    margin-top: 50px;
+  }
+  
+  .post-image {
+    padding-left: 10px;
+  }
+  
+  .post-body {
+    /* position: relative; */
+    max-width: 800px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+  }
+  
+  .post-body p {
+    white-space: pre-line;
+  }

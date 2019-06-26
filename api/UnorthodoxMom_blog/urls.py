@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework import routers
 from django.views.generic import TemplateView
 
@@ -15,15 +15,16 @@ router.register(r'newsletter', api.NewsLetterViewSet)
 urlpatterns = [
     # urls for Django Rest Framework API
     path('api/v1/', include(router.urls)),
-    path('', TemplateView.as_view(template_name='home.html')),
+    # path(r'^(?:.*)/?$', TemplateView.as_view(template_name='base.html')),
+    # re_path(r'', views.catchall),
 ]
 
 urlpatterns += [
     # urls for Blog_Post
-    path('blog_post/', views.Blog_PostListView.as_view(), name='UnorthodoxMom_blog_blog_post_list'),
-    path('blog_post/create/', views.Blog_PostCreateView.as_view(), name='UnorthodoxMom_blog_blog_post_create'),
-    path('blog_post/detail/<slug:slug>/', views.Blog_PostDetailView.as_view(), name='UnorthodoxMom_blog_blog_post_detail'),
-    path('blog_post/update/<slug:slug>/', views.Blog_PostUpdateView.as_view(), name='UnorthodoxMom_blog_blog_post_update'),
+    path('', views.Blog_PostListView.as_view(), name='UnorthodoxMom_blog_blog_post_list'),
+    path('new/blog/', views.Blog_PostCreateView.as_view(), name='UnorthodoxMom_blog_blog_post_create'),
+    path('blog/<slug:slug>/', views.PostCommentView.as_view(), name='UnorthodoxMom_blog_blog_post_detail'),
+    path('blog/update/<slug:slug>/', views.Blog_PostUpdateView.as_view(), name='UnorthodoxMom_blog_blog_post_update'),
 ]
 
 urlpatterns += [

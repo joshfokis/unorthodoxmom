@@ -7,15 +7,20 @@
     <meta name="theme-color" content="#000000" />
     <title>Unorthodox Mom</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css.map">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Rochester&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="{% static 'css/mom.css' %}">
 
   </head>
-<body>
+  <body>
     {% include 'components/nav.html' %}
+    <section class="main-content">
+    {% include 'components/title.html' %}
+    {% include 'components/about.html' %}
     {% block content %}
-    {% endblock %} 
-</body>
+    {% endblock content %}
+    </section>
+  </body>
+  </html>

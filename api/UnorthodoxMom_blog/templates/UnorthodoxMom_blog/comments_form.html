@@ -1,11 +1,11 @@
-{% extends "base.html" %}
 {% load static %}
-{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 {% block content %}
-<p><a class="btn btn-default" href="{% url 'UnorthodoxMom_blog_comments_list' %}">Comments Listing</a></p>
+
 <form method="post">
 {% csrf_token %}
-{{form|crispy}}
+{{form.name|add_class:"input"}}
+{{form.comment_body|add_class:"textarea"}}
 <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 {% endblock %}

@@ -1,0 +1,19 @@
+<section class="section">
+        {% for comment in blog_comments %}
+            <article class="media comments-box">
+            <div class="media-content">
+                <div class="content">
+                <p>
+                    <strong>{{ comment.name }}</strong>
+                    <br />
+                    {{ comment.comment_body }}
+                </p>
+                </div>
+                <nav class="level is-mobile">
+                <div class="level-left">
+                </div>
+                </nav>
+            </div>
+            </article>
+        {% endfor %}
+</section>

@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'django_extensions',
     'crispy_forms',
+    'widget_tweaks',
     'rest_framework',
     'UnorthodoxMom_blog',
     'corsheaders'
@@ -129,8 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'staticfiles'), 
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'cdn-local')
+print(f'static path: {STATIC_ROOT}')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -161,9 +166,16 @@ sentry_sdk.init(
     integrations=[DjangoIntegration()]
 )
 
+
+
+ORS_URLS_REGEX = r'^/api.*'
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     '*',
+#     'your-domain.com',
+#     'your-bucket-here.s3-us-west-2.amazonaws.com',
+# )
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
     'http://127.0.0.1',
     'http://localhost',
     )
